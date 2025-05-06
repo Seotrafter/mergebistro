@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+
+    <!-- Encabezado de Sobre los Desarrolladores -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[#007500] mt-16">Sobre los Desarrolladores</h1>
+                <div class="h-1 w-32 bg-[#f7890b] mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gradient-to-r from-[#f7890b]/5 to-[#007500]/5 p-8 rounded-2xl mb-12">
+                    <p class="text-xl text-gray-700 font-light leading-relaxed mb-6 text-center">
+                        Detrás de <span class="text-[#f7890b] font-medium">Merge Bistro</span> hay un pequeño equipo de desarrolladores apasionados que comparten un sueño: crear experiencias de juego que traigan alegría y diversión a niños de todas las edades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestra Historia -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="/src/img/devs.png" alt="Equipo de desarrollo de Merge Bistro" class="rounded-3xl ">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="flex items-start gap-6 mb-10">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span>📖</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold mb-6 text-[#007500]">Nuestra Historia</h2>
+                                <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                                    Todo comenzó en 2019, cuando un grupo de amigos que trabajaban en diferentes empresas de desarrollo de software decidieron reunirse los fines de semana para trabajar en un proyecto propio. Compartían una pasión por los juegos de fusión y la cocina, y querían crear algo que pudiera combinar estos dos mundos de manera divertida y educativa.
+                                </p>
+                                <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                                    Durante meses, dedicaron sus noches y fines de semana a diseñar, programar y probar su idea. Lo que empezó como un pequeño proyecto paralelo pronto se convirtió en algo más grande cuando vieron la respuesta positiva de los primeros usuarios de prueba, especialmente los niños.
+                                </p>
+                                <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                    En 2020, en medio de la pandemia global, el equipo tomó la decisión de dedicarse a tiempo completo a Merge Bistro. Sabían que, en tiempos difíciles, crear un juego que pudiera traer alegría y diversión a los hogares era más importante que nunca.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Nuestro Equipo -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>👨‍💻</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Nuestro Equipo</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                            Somos un equipo pequeño pero diverso, cada uno con habilidades y talentos únicos. Lo que nos une es nuestra pasión por crear experiencias que inspiren a los niños y fomenten su creatividad y aprendizaje a través del juego.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Miembro del equipo 1 -->
+                            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 bg-[#f7890b]/20 rounded-full mb-4 flex items-center justify-center">
+                                        <span class="text-4xl">👩‍💻</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-[#007500] mb-2">Ana Rodríguez</h3>
+                                    <p class="text-[#f7890b] font-medium mb-3">Directora Creativa</p>
+                                    <p class="text-gray-700 font-light">
+                                        Con más de 10 años de experiencia en diseño de juegos, Ana es el corazón creativo de Merge Bistro. Su pasión por la cocina y su amor por los juegos la llevaron a concebir la idea inicial del juego.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Miembro del equipo 2 -->
+                            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 bg-[#007500]/20 rounded-full mb-4 flex items-center justify-center">
+                                        <span class="text-4xl">👨‍💻</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-[#007500] mb-2">Carlos Méndez</h3>
+                                    <p class="text-[#f7890b] font-medium mb-3">Desarrollador Principal</p>
+                                    <p class="text-gray-700 font-light">
+                                        Carlos es un apasionado programador que ha logrado dar vida a las ideas más creativas del equipo. Su experiencia en desarrollo de juegos móviles ha sido fundamental para crear una experiencia fluida y divertida.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Miembro del equipo 3 -->
+                            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 bg-[#f7890b]/20 rounded-full mb-4 flex items-center justify-center">
+                                        <span class="text-4xl">🎨</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-[#007500] mb-2">Lucía Vega</h3>
+                                    <p class="text-[#f7890b] font-medium mb-3">Artista Principal</p>
+                                    <p class="text-gray-700 font-light">
+                                        El estilo artístico único de Merge Bistro es obra de Lucía. Su capacidad para crear personajes entrañables y escenarios coloridos ha dado al juego su estética distintiva que encanta a grandes y pequeños.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Miembro del equipo 4 -->
+                            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 bg-[#007500]/20 rounded-full mb-4 flex items-center justify-center">
+                                        <span class="text-4xl">🎵</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-[#007500] mb-2">Martín Silva</h3>
+                                    <p class="text-[#f7890b] font-medium mb-3">Diseñador de Sonido</p>
+                                    <p class="text-gray-700 font-light">
+                                        La banda sonora y efectos sonoros de Merge Bistro son creación de Martín. Su talento para componer melodías pegadizas y efectos divertidos añade una dimensión extra a la experiencia de juego.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Nuestra Filosofía -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <div class="flex items-start gap-6">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span>💫</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold mb-6 text-[#007500]">Nuestra Filosofía</h2>
+                                <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                                    En Merge Bistro, creemos que los mejores juegos son aquellos que combinan diversión y aprendizaje de forma natural. Nuestra filosofía se basa en tres pilares fundamentales:
+                                </p>
+
+                                <div class="space-y-6 mt-8">
+                                    <div class="bg-white rounded-xl p-5 shadow-md">
+                                        <h3 class="text-xl font-semibold text-[#f7890b] mb-2">Creatividad sin Límites</h3>
+                                        <p class="text-gray-700 font-light">
+                                            Fomentamos la exploración y experimentación, permitiendo a los niños descubrir combinaciones únicas y desarrollar su pensamiento creativo.
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-white rounded-xl p-5 shadow-md">
+                                        <h3 class="text-xl font-semibold text-[#f7890b] mb-2">Diversión Educativa</h3>
+                                        <p class="text-gray-700 font-light">
+                                            Incorporamos elementos educativos sobre cocina, nutrición y gestión de recursos de manera divertida, sin que parezca una lección.
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-white rounded-xl p-5 shadow-md">
+                                        <h3 class="text-xl font-semibold text-[#f7890b] mb-2">Accesibilidad para Todos</h3>
+                                        <p class="text-gray-700 font-light">
+                                            Diseñamos nuestros juegos para que sean accesibles a niños de diferentes edades, habilidades y entornos culturales.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 order-1 md:order-2">
+                        <img src="/src/img/devs2.png" alt="Equipo trabajando juntos" class="rounded-3xl shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Mensaje Final -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="bg-gradient-to-r from-[#f7890b]/10 to-[#007500]/10 p-8 rounded-2xl mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-[#007500]">Un Mensaje de Nuestro Equipo</h2>
+                    <p class="text-xl text-gray-700 font-light leading-relaxed italic mb-6">
+                        "Creamos Merge Bistro con la esperanza de traer un poco de alegría y diversión a los niños de todo el mundo. Ver sus sonrisas cuando juegan nuestra creación es la mayor recompensa que podríamos pedir."
+                    </p>
+                    <p class="text-lg text-gray-700 font-medium">
+                        - El Equipo de Merge Bistro
+                    </p>
+                </div>
+
+                <a href="/" class="inline-block px-8 py-4 bg-[#f7890b] text-white rounded-xl text-xl font-bold hover:bg-[#007500] transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    Conoce Nuestro Juego
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estilos adicionales específicos para la página Sobre los Desarrolladores -->
+    <style>
+        /* Efectos de brillo para imágenes */
+        .rounded-3xl.shadow-xl {
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .rounded-3xl.shadow-xl:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .rounded-3xl.shadow-xl::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1.5rem;
+            background: linear-gradient(45deg, rgba(247, 137, 11, 0.2), rgba(0, 117, 0, 0.2));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .rounded-3xl.shadow-xl:hover::after {
+            opacity: 1;
+        }
+
+        /* Animación para tarjetas de equipo */
+        .bg-gray-50.rounded-xl {
+            transition: all 0.3s ease;
+        }
+
+        .bg-gray-50.rounded-xl:hover {
+            box-shadow: 0 10px 25px -5px rgba(247, 137, 11, 0.2), 0 10px 10px -5px rgba(0, 117, 0, 0.1);
+        }
+
+        /* Efectos para iconos */
+        .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+        .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12:hover,
+        .bg-\[\#007500\].text-white.text-2xl.w-12.h-12:hover {
+            transform: rotate(10deg);
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.4);
+        }
+
+        /* Animación de entrada para secciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .flex.items-start.gap-6 {
+                flex-direction: column;
+            }
+
+            .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+            .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <?php include '../cookie-consent.php'; ?>
+</body>
+
+</html>

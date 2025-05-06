@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+    <!-- Encabezado de la página de Contacto -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[#007500] mt-16">Contáctanos</h1>
+                <div class="h-1 w-32 bg-[#f7890b] mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gradient-to-r from-[#f7890b]/5 to-[#007500]/5 p-8 rounded-2xl mb-12">
+                    <p class="text-xl text-gray-700 font-light leading-relaxed text-center">
+                        Si tienes alguna pregunta, sugerencia o comentario, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Información de Contacto -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="md:w-1/2">
+                        <div class="flex items-start gap-6 mb-10">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span>📞</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold mb-6 text-[#007500]">Información de Contacto</h2>
+
+                                <div class="space-y-6">
+                                    <!-- Correo electrónico -->
+                                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                        <h3 class="text-xl font-semibold text-[#f7890b] mb-2 flex items-center gap-2">
+                                            <span>✉️</span> Correo Electrónico
+                                        </h3>
+                                        <p class="text-gray-700 font-light">
+                                            <a href="mailto:info@mergebistro.com" class="text-[#007500] hover:text-[#f7890b] transition-colors">
+                                                info@mergebistro.com
+                                            </a>
+                                        </p>
+                                        <p class="text-sm text-gray-500 mt-2">
+                                            Responderemos a tu mensaje en un plazo de 24-48 horas laborables.
+                                        </p>
+                                    </div>
+
+                                    <!-- Teléfono -->
+                                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                        <h3 class="text-xl font-semibold text-[#f7890b] mb-2 flex items-center gap-2">
+                                            <span>📱</span> Teléfono (Chile)
+                                        </h3>
+                                        <p class="text-gray-700 font-light">
+                                            <a href="tel:+56227653400" class="text-[#007500] hover:text-[#f7890b] transition-colors">
+                                                +56 2 2765 3400
+                                            </a>
+                                        </p>
+                                        <p class="text-sm text-gray-500 mt-2">
+                                            Disponible de lunes a viernes, de 9:00 a 18:00 horas (GMT-4).
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="flex items-start gap-6 mb-10">
+                            <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span>📝</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Formulario de Contacto</h2>
+                                <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                                    Por favor, completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible.
+                                </p>
+
+                                <form action="/thank-you/" class="space-y-6">
+                                    <!-- Nombre -->
+                                    <div>
+                                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+                                        <input type="text" id="nombre" name="nombre" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f7890b] focus:border-transparent transition-all shadow-sm">
+                                    </div>
+
+                                    <!-- Correo Electrónico -->
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico *</label>
+                                        <input type="email" id="email" name="email" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f7890b] focus:border-transparent transition-all shadow-sm">
+                                    </div>
+
+                                    <!-- Asunto -->
+                                    <div>
+                                        <label for="asunto" class="block text-sm font-medium text-gray-700 mb-1">Asunto *</label>
+                                        <input type="text" id="asunto" name="asunto" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f7890b] focus:border-transparent transition-all shadow-sm">
+                                    </div>
+
+                                    <!-- Mensaje -->
+                                    <div>
+                                        <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje *</label>
+                                        <textarea id="mensaje" name="mensaje" rows="5" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f7890b] focus:border-transparent transition-all shadow-sm resize-none"></textarea>
+                                    </div>
+
+                                    <!-- Tipo de Consulta -->
+                                    <div>
+                                        <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Consulta</label>
+                                        <select id="tipo" name="tipo"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f7890b] focus:border-transparent transition-all shadow-sm appearance-none bg-white">
+                                            <option value="general">Consulta General</option>
+                                            <option value="soporte">Soporte Técnico</option>
+                                            <option value="sugerencia">Sugerencia</option>
+                                            <option value="prensa">Prensa/Medios</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Botón de Envío -->
+                                    <div class="pt-4">
+                                        <button type="submit"
+                                            class="w-full px-6 py-4 bg-[#f7890b] text-white rounded-xl text-lg font-bold hover:bg-[#007500] transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                                            Enviar Mensaje
+                                        </button>
+                                    </div>
+
+                                    <p class="text-sm text-gray-500 italic">
+                                        * Campos obligatorios
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Ubicación -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📍</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Nuestra Ubicación</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                            Nuestras oficinas se encuentran en Santiago de Chile. Si estás en la zona, no dudes en visitarnos (previa cita).
+                        </p>
+
+                        <div class="bg-white rounded-xl p-6 shadow-md mb-8">
+                            <div class="flex items-start gap-4">
+                                <span class="text-2xl text-[#f7890b]">🏢</span>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-[#007500] mb-2">Oficina Principal</h3>
+                                    <p class="text-gray-700 font-light">
+                                        Av. Providencia 1208, Oficina 402<br>
+                                        Providencia, Santiago<br>
+                                        Chile
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4 text-[#f7890b]">Preguntas Frecuentes</h2>
+                    <p class="text-lg text-gray-700 font-light">
+                        Antes de contactarnos, quizás encuentres respuesta a tu pregunta aquí.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Pregunta 1 -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-xl font-semibold text-[#007500]">¿Cómo puedo recuperar mi cuenta de juego?</h3>
+                            <span class="text-[#f7890b] text-2xl">+</span>
+                        </button>
+                        <div class="hidden mt-4">
+                            <p class="text-gray-700 font-light">
+                                Si has perdido el acceso a tu cuenta, puedes utilizar la opción "Recuperar cuenta" en la pantalla de inicio del juego, o contáctanos con el correo electrónico asociado a tu cuenta para ayudarte a recuperarla.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-xl font-semibold text-[#007500]">¿Dónde puedo reportar un error en el juego?</h3>
+                            <span class="text-[#f7890b] text-2xl">+</span>
+                        </button>
+                        <div class="hidden mt-4">
+                            <p class="text-gray-700 font-light">
+                                Puedes reportar errores directamente desde el juego usando la opción "Soporte" en el menú de configuración, o a través de nuestro formulario de contacto seleccionando "Soporte Técnico" como tipo de consulta.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-xl font-semibold text-[#007500]">¿Cómo puedo sugerir nuevas características para el juego?</h3>
+                            <span class="text-[#f7890b] text-2xl">+</span>
+                        </button>
+                        <div class="hidden mt-4">
+                            <p class="text-gray-700 font-light">
+                                ¡Nos encantan las sugerencias de nuestra comunidad! Puedes enviarnos tus ideas a través del formulario de contacto seleccionando "Sugerencia" como tipo de consulta o compartirlas en nuestras redes sociales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Estilos adicionales específicos para la página de Contacto -->
+    <style>
+        /* Efectos de enfoque para el formulario */
+        input:focus,
+        textarea:focus,
+        select:focus {
+            box-shadow: 0 0 0 3px rgba(247, 137, 11, 0.2);
+        }
+
+        /* Estilo para el selector */
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        /* Estilo para las preguntas frecuentes */
+        .bg-white.rounded-xl button {
+            transition: all 0.3s ease;
+        }
+
+        .bg-white.rounded-xl button:hover {
+            color: #f7890b;
+        }
+
+        /* Animación para elementos con hover */
+        .hover\:-translate-y-1:hover {
+            box-shadow: 0 10px 25px -5px rgba(247, 137, 11, 0.2), 0 8px 10px -6px rgba(0, 117, 0, 0.1);
+        }
+
+        /* Animación de entrada para secciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .flex.items-start.gap-6 {
+                flex-direction: column;
+            }
+
+            .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+            .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+                margin-bottom: 1rem;
+            }
+
+            .flex.justify-center.gap-6 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .px-8.py-4 {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.rounded-xl button');
+
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const plusSign = this.querySelector('span');
+
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        plusSign.textContent = '−';
+                    } else {
+                        content.classList.add('hidden');
+                        plusSign.textContent = '+';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <?php include '../cookie-consent.php'; ?>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+
+    <!-- Encabezado de la Política de Privacidad -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[#007500] mt-16">Política de Privacidad de Merge Bistro</h1>
+                <div class="h-1 w-32 bg-[#f7890b] mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gradient-to-r from-[#f7890b]/5 to-[#007500]/5 p-8 rounded-2xl mb-12">
+                    <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                        En Merge Bistro, accesible desde <span class="text-[#f7890b] font-medium">https://mergebistro.com/</span>, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene los tipos de información que se recopilan y registran en Merge Bistro y cómo la utilizamos.
+                    </p>
+                    <p class="text-lg text-gray-700 font-light leading-relaxed">
+                        Si tienes preguntas adicionales o necesitas más información sobre nuestra Política de Privacidad, no dudes en contactarnos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Archivos de Registro -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📊</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Archivos de Registro</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Merge Bistro sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando acceden a sitios web. Todas las empresas de alojamiento hacen esto como parte del análisis de servicios de hosting.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            La información recopilada por los archivos de registro incluye direcciones de protocolo de internet (IP), tipo de navegador, proveedor de servicios de internet (ISP), fecha y hora, páginas de referencia/salida y, posiblemente, la cantidad de clics.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Estos datos no están vinculados a ninguna información que permita identificar personalmente a los visitantes. El propósito de esta información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en la web y recopilar información demográfica. Nuestra Política de Privacidad fue creada con la ayuda del <a href="https://www.privacypolicyonline.com/privacy-policy-generator/" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Generador de Políticas de Privacidad</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Cookies y Web Beacons -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🍪</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Cookies y Web Beacons</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Al igual que otros sitios web, Merge Bistro utiliza "cookies". Estas cookies se usan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio que han visitado. Esta información se emplea para optimizar la experiencia del usuario personalizando el contenido de nuestra página web según el tipo de navegador del visitante y otra información relevante.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Para obtener más información sobre las cookies, te recomendamos leer el artículo <a href="https://www.privacypolicyonline.com/what-are-cookies/" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">"¿Qué son las cookies?"</a> del Generador de Políticas de Privacidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Google DoubleClick DART -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🎯</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Cookie de Google DoubleClick DART</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como DART, para mostrar anuncios a nuestros visitantes en función de su visita a <span class="text-[#f7890b] font-medium">https://mergebistro.com/</span> y otros sitios en internet.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Sin embargo, los visitantes pueden optar por rechazar el uso de las cookies DART visitando la Política de Privacidad de la red de anuncios y contenido de Google en el siguiente enlace: <a href="https://policies.google.com/technologies/ads" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">https://policies.google.com/technologies/ads</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Socios Publicitarios -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🤝</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Nuestros Socios Publicitarios</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            Algunos de los anunciantes en nuestro sitio pueden usar cookies y web beacons. A continuación, enumeramos a nuestros socios publicitarios. Cada uno de ellos tiene su propia Política de Privacidad con respecto al manejo de datos de los usuarios. Para un acceso más fácil, hemos incluido enlaces a sus respectivas Políticas de Privacidad:
+                        </p>
+
+                        <div class="bg-gray-50 rounded-xl p-6 mb-6 shadow-md">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-xl">🔍</span>
+                                <h3 class="text-xl font-semibold text-[#007500]">Google</h3>
+                            </div>
+                            <a href="https://policies.google.com/technologies/ads" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">https://policies.google.com/technologies/ads</a>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-[#007500]">Políticas de Privacidad</h3>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Puedes consultar esta lista para encontrar la Política de Privacidad de cada uno de los socios publicitarios de Merge Bistro.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Los servidores de anuncios o redes publicitarias de terceros utilizan tecnologías como cookies, JavaScript o Web Beacons en sus anuncios y enlaces que aparecen en Merge Bistro. Estos se envían directamente al navegador del usuario y, en ese momento, reciben automáticamente la dirección IP del visitante. Estas tecnologías se utilizan para medir la efectividad de las campañas publicitarias y/o personalizar el contenido de los anuncios que ves en los sitios web que visitas.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Ten en cuenta que Merge Bistro no tiene acceso ni control sobre estas cookies utilizadas por anunciantes de terceros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Políticas de Privacidad de Terceros -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🔒</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Políticas de Privacidad de Terceros</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            La Política de Privacidad de Merge Bistro no se aplica a otros anunciantes o sitios web. Por lo tanto, te recomendamos que consultes las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada. Esto puede incluir sus prácticas y cómo optar por excluirse de ciertas opciones.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Puedes desactivar las cookies desde las opciones de configuración de tu navegador. Para obtener más información sobre cómo administrar las cookies en navegadores específicos, puedes visitar los sitios web oficiales de los mismos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Información para Niños -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>👶</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Información para Niños</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Otra de nuestras prioridades es brindar protección adicional a los niños mientras navegan por internet. Alentamos a los padres y tutores a observar, participar y/o supervisar la actividad en línea de sus hijos.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Merge Bistro no recopila conscientemente información personal identificable de niños menores de 13 años. Si crees que tu hijo ha proporcionado este tipo de información en nuestro sitio web, te recomendamos que nos contactes de inmediato y haremos todo lo posible para eliminar dicha información de nuestros registros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Política de Privacidad en Línea Únicamente -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>💻</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Política de Privacidad en Línea Únicamente</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Esta Política de Privacidad se aplica únicamente a nuestras actividades en línea y es válida para los visitantes de nuestro sitio web con respecto a la información que comparten y/o recopilamos en Merge Bistro. Esta política no se aplica a la información recopilada fuera de línea o a través de otros canales distintos de este sitio web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Consentimiento -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>✅</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Consentimiento</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Al utilizar nuestro sitio web, aceptas nuestra Política de Privacidad y estás de acuerdo con sus Términos y Condiciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="py-16 bg-gradient-to-b from-white to-[#f7890b]/20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-[#007500]">¿Tienes Preguntas?</h2>
+                <p class="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                    Si tienes alguna pregunta adicional sobre nuestra Política de Privacidad, no dudes en contactarnos.
+                </p>
+                <a href="/contacto/" class="inline-block px-8 py-4 bg-[#f7890b] text-white rounded-xl text-xl font-bold hover:bg-[#007500] transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    Contactar al Soporte
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estilos adicionales específicos para la página de Política de Privacidad -->
+    <style>
+        /* Efecto de hover para enlaces */
+
+
+        /* Efecto de brillo para botones */
+        .hover\:shadow-xl {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hover\:shadow-xl:hover {
+            box-shadow: 0 0 25px rgba(0, 117, 0, 0.5);
+        }
+
+        /* Efecto de transición para las secciones */
+        section {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .flex.items-start.gap-6 {
+                flex-direction: column;
+            }
+
+            .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+            .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <?php include '../cookie-consent.php'; ?>
+</body>
+
+</html>

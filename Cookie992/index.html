@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+
+    <!-- Encabezado de la Política de Cookies -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[#007500] mt-16">Política de Cookies</h1>
+                <div class="h-1 w-32 bg-[#f7890b] mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gradient-to-r from-[#f7890b]/5 to-[#007500]/5 p-8 rounded-2xl mb-12">
+                    <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                        En <span class="text-[#f7890b] font-medium">Merge Bistro</span>, utilizamos cookies y tecnologías similares para mejorar tu experiencia en nuestro sitio web, personalizar contenido y anuncios, proporcionar funciones de redes sociales y analizar nuestro tráfico.
+                    </p>
+                    <p class="text-lg text-gray-700 font-light leading-relaxed">
+                        Esta Política de Cookies explica qué son las cookies, cómo las utilizamos, tus opciones con respecto a las cookies y más información sobre ellas. Esta política se aplica a todas las páginas web y aplicaciones móviles operadas por Merge Bistro ("nosotros", "nos" o "nuestro").
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección ¿Qué son las Cookies? -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🍪</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">¿Qué son las Cookies?</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Las cookies son pequeños archivos de texto que los sitios web colocan en tu dispositivo cuando los visitas. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Las cookies desempeñan diversas funciones, desde permitir que el sitio recuerde tus preferencias hasta ayudarnos a entender cómo utilizan los usuarios nuestro sitio para mejorarlo.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Las cookies pueden permanecer en tu dispositivo por diferentes períodos de tiempo. Algunas cookies son 'cookies de sesión', lo que significa que solo existen mientras tu navegador está abierto y se eliminan automáticamente una vez que cierras el navegador. Otras son 'cookies persistentes', lo que significa que permanecen en tu dispositivo después de cerrar el navegador hasta que expiran o son eliminadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Tipos de Cookies que Utilizamos -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🔍</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Tipos de Cookies que Utilizamos</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            En Merge Bistro utilizamos diferentes tipos de cookies para distintos propósitos. A continuación se detallan las categorías de cookies que empleamos:
+                        </p>
+
+                        <!-- Cookies Esenciales -->
+                        <div class="bg-gray-50 rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Cookies Esenciales</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Estas cookies son necesarias para que el sitio web funcione correctamente. Te permiten navegar por el sitio y utilizar sus funciones. Sin estas cookies, no podríamos proporcionar ciertos servicios que solicitas. Estas cookies no recopilan información sobre ti que pueda utilizarse para marketing o para recordar dónde has estado en internet.
+                            </p>
+                        </div>
+
+                        <!-- Cookies de Rendimiento -->
+                        <div class="bg-gray-50 rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Cookies de Rendimiento y Análisis</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web recopilando y reportando información de forma anónima. Nos permiten reconocer y contar el número de visitantes y ver cómo se mueven por el sitio cuando lo utilizan. Esto nos ayuda a mejorar la forma en que funciona nuestro sitio, por ejemplo, asegurando que los usuarios encuentren fácilmente lo que buscan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Continuación de Tipos de Cookies -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🎯</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Más Tipos de Cookies</h2>
+
+                        <!-- Cookies de Funcionalidad -->
+                        <div class="bg-white rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Cookies de Funcionalidad</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Estas cookies permiten que nuestro sitio web recuerde las elecciones que realizas (como tu nombre de usuario, idioma o región) y proporcione funciones mejoradas y más personalizadas. También pueden utilizarse para proporcionar los servicios que has solicitado, como ver un video o comentar en un blog. La información que recopilan estas cookies puede ser anonimizada y no pueden rastrear tu actividad de navegación en otros sitios web.
+                            </p>
+                        </div>
+
+                        <!-- Cookies de Publicidad -->
+                        <div class="bg-white rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Cookies de Publicidad y Orientación</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Estas cookies se utilizan para mostrarte anuncios que sean relevantes para ti y tus intereses. También se utilizan para limitar el número de veces que ves un anuncio, así como para ayudar a medir la efectividad de las campañas publicitarias. Suelen ser colocadas por redes publicitarias con nuestro permiso. Recuerdan que has visitado un sitio web y esta información se comparte con otras organizaciones, como los anunciantes.
+                            </p>
+                        </div>
+
+                        <!-- Cookies de Terceros -->
+                        <div class="bg-white rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Cookies de Redes Sociales y de Terceros</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Nuestro sitio puede incluir funcionalidades proporcionadas por terceros, como botones para compartir en redes sociales. Estas funciones pueden recopilar información sobre tu actividad en internet, como tu dirección IP y qué sitio web estás visitando, y establecer una cookie para que la función opere correctamente. El procesamiento de esta información está sujeto a las políticas de privacidad de estas empresas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proveedores Específicos de Cookies -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🔄</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Proveedores Específicos de Cookies</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            A continuación, se detallan algunos de los principales proveedores de cookies que utilizamos en nuestro sitio web:
+                        </p>
+
+                        <!-- Google Analytics -->
+                        <div class="bg-gray-50 rounded-xl p-6 mb-6 shadow-md">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-xl">🔍</span>
+                                <h3 class="text-xl font-semibold text-[#007500]">Google Analytics</h3>
+                            </div>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Utilizamos Google Analytics para entender cómo los visitantes interactúan con nuestro sitio web. Estas cookies recopilan información sobre el comportamiento de los usuarios, como qué páginas visitan más frecuentemente y si encuentran errores. Toda la información recopilada es anónima. Para más información, visita la <a href="https://policies.google.com/technologies/cookies" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Política de Cookies de Google</a>.
+                            </p>
+                        </div>
+
+                        <!-- Google Ads -->
+                        <div class="bg-gray-50 rounded-xl p-6 mb-6 shadow-md">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-xl">📊</span>
+                                <h3 class="text-xl font-semibold text-[#007500]">Google Ads</h3>
+                            </div>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Utilizamos cookies de Google Ads para personalizar los anuncios que se muestran en nuestro sitio y en otros sitios de internet. Estas cookies también nos ayudan a medir la efectividad de nuestras campañas de marketing. Para obtener más información, visita la <a href="https://policies.google.com/technologies/ads" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Política de Privacidad de Google</a>.
+                            </p>
+                        </div>
+
+                        <!-- Facebook Pixel -->
+                        <div class="bg-gray-50 rounded-xl p-6 shadow-md">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-xl">👥</span>
+                                <h3 class="text-xl font-semibold text-[#007500]">Facebook Pixel</h3>
+                            </div>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Utilizamos Facebook Pixel para medir la efectividad de nuestros anuncios en Facebook e Instagram y para construir audiencias personalizadas basadas en las acciones de los usuarios en nuestro sitio. Para más información, consulta la <a href="https://www.facebook.com/policies/cookies/" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Política de Cookies de Facebook</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Control de Cookies -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🔧</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Cómo Controlar las Cookies</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            Puedes controlar y administrar las cookies de varias maneras. Ten en cuenta que eliminar o bloquear las cookies puede afectar a tu experiencia de usuario y es posible que algunas partes de nuestro sitio web no funcionen correctamente.
+                        </p>
+
+                        <!-- Configuración del Navegador -->
+                        <div class="bg-white rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Configuración de tu Navegador</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                                La mayoría de los navegadores web te permiten controlar las cookies a través de sus opciones de configuración. Generalmente, puedes:
+                            </p>
+                            <ul class="list-disc pl-8 mb-4 space-y-2 text-lg text-gray-700 font-light">
+                                <li>Ver qué cookies tienes y eliminarlas individualmente</li>
+                                <li>Bloquear cookies de terceros</li>
+                                <li>Bloquear cookies de sitios particulares</li>
+                                <li>Bloquear la configuración de todas las cookies</li>
+                                <li>Eliminar todas las cookies cuando cierres tu navegador</li>
+                            </ul>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Consulta la sección de "Ayuda" de tu navegador para obtener más información sobre cómo ajustar o modificar la configuración de tu navegador.
+                            </p>
+                        </div>
+
+                        <!-- Opt-Out de Análisis -->
+                        <div class="bg-white rounded-xl p-6 mb-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Opt-Out de Herramientas de Análisis</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                                Puedes optar por no participar en las herramientas de análisis utilizando los siguientes enlaces:
+                            </p>
+                            <ul class="list-disc pl-8 mb-4 space-y-2 text-lg text-gray-700 font-light">
+                                <li>Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Complemento de inhabilitación de Google Analytics</a></li>
+                                <li>Google Ads: <a href="https://www.google.com/settings/ads" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Configuración de anuncios de Google</a></li>
+                                <li>Facebook: <a href="https://www.facebook.com/ads/preferences/" class="text-[#f7890b] hover:text-[#007500] transition-colors relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#f7890b] after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Preferencias de anuncios de Facebook</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Configuración en nuestro sitio -->
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <h3 class="text-xl font-semibold text-[#007500] mb-3">Configuración en Nuestro Sitio</h3>
+                            <p class="text-lg text-gray-700 font-light leading-relaxed">
+                                Cuando visitas nuestro sitio por primera vez, te mostramos un banner de cookies que te permite aceptar o rechazar las cookies no esenciales. Puedes cambiar tus preferencias en cualquier momento haciendo clic en el botón "Configuración de Cookies" en la parte inferior de nuestro sitio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Actualizaciones a esta Política -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📝</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Actualizaciones a esta Política</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Podemos actualizar esta Política de Cookies periódicamente para reflejar, por ejemplo, cambios en las cookies que utilizamos o por otros motivos operativos, legales o regulatorios. Por lo tanto, revisa regularmente esta Política de Cookies para estar informado sobre nuestro uso de cookies y tecnologías relacionadas.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mt-4">
+                            La fecha en la parte inferior de esta Política de Cookies indica cuándo se actualizó por última vez.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="py-12 bg-gradient-to-b from-white to-[#f7890b]/20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📧</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Contáctanos</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            Si tienes alguna pregunta sobre nuestro uso de cookies o sobre esta Política de Cookies, no dudes en contactarnos a través de:
+                        </p>
+
+                        <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                            <ul class="space-y-3 text-lg text-gray-700">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-[#f7890b]">✉️</span>
+                                    <span>Email: <a href="mailto:privacy@mergebistro.com" class="text-[#f7890b] hover:text-[#007500] transition-colors">privacy@mergebistro.com</a></span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-[#f7890b]">🌐</span>
+                                    <span>Sitio web: <a href="https://mergebistro.com/contacto" class="text-[#f7890b] hover:text-[#007500] transition-colors">https://mergebistro.com/contacto</a></span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 mt-12 pt-6 text-center">
+                    <p class="text-gray-500 font-light">
+                        Última actualización: 27 de marzo de 2025
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estilos adicionales específicos para la página de Política de Cookies -->
+    <style>
+        /* Efectos de hover para enlaces */
+        .text-\[\#f7890b\].hover\:text-\[\#007500\] {
+            position: relative;
+            text-decoration: none;
+        }
+
+        /* Efectos de brillo para botones y elementos destacados */
+        .rounded-xl.shadow-md {
+            transition: all 0.3s ease;
+        }
+
+        .rounded-xl.shadow-md:hover {
+            box-shadow: 0 10px 25px -5px rgba(247, 137, 11, 0.1), 0 10px 10px -5px rgba(0, 117, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        /* Animación para iconos */
+        .bg-\[\#f7890b\],
+        .bg-\[\#007500\] {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        /* Efectos de entrada para secciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
+            animation-delay: calc(var(--section-index, 0) * 0.1s);
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .flex.items-start.gap-6 {
+                flex-direction: column;
+            }
+
+            .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+            .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+                margin-bottom: 1rem;
+            }
+
+            .text-4xl.md\:text-5xl {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <?php include '../cookie-consent.php'; ?>
+</body>
+
+</html>

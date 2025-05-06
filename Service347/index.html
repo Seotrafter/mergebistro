@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="/" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+
+    <!-- Encabezado de Términos y Condiciones -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[#007500] mt-16">Términos y Condiciones</h1>
+                <div class="h-1 w-32 bg-[#f7890b] mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gradient-to-r from-[#f7890b]/5 to-[#007500]/5 p-8 rounded-2xl mb-12">
+                    <p class="text-xl text-gray-700 font-light leading-relaxed mb-6">
+                        ¡Bienvenido a <span class="text-[#f7890b] font-medium">Merge Bistro</span>!
+                    </p>
+                    <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                        Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de Merge Bistro, ubicado en <span class="text-[#f7890b] font-medium">https://mergebistro.com/</span>.
+                    </p>
+                    <p class="text-lg text-gray-700 font-light leading-relaxed">
+                        Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones. No continúes utilizando Merge Bistro si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Cookies -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🍪</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Cookies</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Usamos cookies. Al acceder a Merge Bistro, aceptas el uso de cookies de acuerdo con la Política de Privacidad de Merge Bistro.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            La mayoría de los sitios web interactivos usan cookies para recuperar los detalles del usuario en cada visita. Las cookies son utilizadas por nuestro sitio web para habilitar la funcionalidad de ciertas áreas y facilitar la navegación. Algunos de nuestros socios afiliados y publicitarios también pueden utilizar cookies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Licencia -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📜</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Licencia</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            A menos que se indique lo contrario, Merge Bistro y/o sus licenciantes poseen los derechos de propiedad intelectual de todo el material en Merge Bistro. Todos los derechos de propiedad intelectual están reservados. Puedes acceder a este material desde Merge Bistro para tu uso personal, sujeto a las restricciones establecidas en estos términos y condiciones.
+                        </p>
+
+                        <p class="text-lg text-gray-700 font-medium mb-4">No debes:</p>
+
+                        <ul class="list-disc pl-8 mb-6 space-y-2 text-lg text-gray-700 font-light">
+                            <li>Republicar material de Merge Bistro</li>
+                            <li>Vender, alquilar o sublicenciar material de Merge Bistro</li>
+                            <li>Reproducir, duplicar o copiar material de Merge Bistro</li>
+                            <li>Redistribuir contenido de Merge Bistro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Comentarios y Publicaciones -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>💬</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Comentarios y Publicaciones</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Algunas secciones del sitio web permiten a los usuarios publicar y compartir opiniones e información. Merge Bistro no filtra, edita, publica ni revisa los comentarios antes de que aparezcan en el sitio web. Los comentarios reflejan la opinión de quienes los publican y no representan necesariamente los puntos de vista de Merge Bistro.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            Merge Bistro se reserva el derecho de supervisar y eliminar cualquier comentario que pueda considerarse inapropiado, ofensivo o que incumpla estos Términos y Condiciones.
+                        </p>
+
+                        <p class="text-lg text-gray-700 font-medium mb-4">Al publicar comentarios, garantizas y declaras que:</p>
+
+                        <ul class="list-disc pl-8 mb-6 space-y-2 text-lg text-gray-700 font-light">
+                            <li>Tienes derecho a publicarlos y cuentas con todas las licencias y consentimientos necesarios.</li>
+                            <li>No infringen ningún derecho de propiedad intelectual de terceros.</li>
+                            <li>No contienen material difamatorio, ofensivo, indecente o ilegal.</li>
+                            <li>No se utilizarán para promocionar negocios, actividades comerciales o actividades ilícitas.</li>
+                        </ul>
+
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Concedes a Merge Bistro una licencia no exclusiva para utilizar, reproducir, editar y autorizar a otros a usar y editar tus comentarios en cualquier formato o medio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Enlaces a Nuestro Contenido -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🔗</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Enlaces a Nuestro Contenido</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Las siguientes organizaciones pueden enlazar a nuestro sitio web sin necesidad de autorización previa:
+                        </p>
+
+                        <ul class="list-disc pl-8 mb-6 space-y-2 text-lg text-gray-700 font-light">
+                            <li>Agencias gubernamentales</li>
+                            <li>Motores de búsqueda</li>
+                            <li>Organizaciones de noticias</li>
+                            <li>Distribuidores de directorios en línea</li>
+                            <li>Empresas acreditadas a nivel de sistema</li>
+                        </ul>
+
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            Estas organizaciones pueden enlazar a nuestra página de inicio o a publicaciones, siempre que el enlace: (a) no sea engañoso, (b) no implique patrocinio o aprobación falsa, y (c) encaje en el contexto del sitio de la parte vinculante.
+                        </p>
+
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Podemos considerar otras solicitudes de enlaces de los siguientes tipos de organizaciones:
+                        </p>
+
+                        <ul class="list-disc pl-8 mb-6 space-y-2 text-lg text-gray-700 font-light">
+                            <li>Fuentes de información para consumidores y/o empresas</li>
+                            <li>Sitios de comunidades en línea</li>
+                            <li>Asociaciones benéficas</li>
+                            <li>Distribuidores de directorios en línea</li>
+                            <li>Portales de internet</li>
+                            <li>Firmas de contabilidad, derecho y consultoría</li>
+                            <li>Instituciones educativas y asociaciones comerciales</li>
+                        </ul>
+
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Si deseas enlazar nuestro sitio web, envíanoss un correo electrónico con tu información y los enlaces que deseas incluir. Nos tomaremos de 2 a 3 semanas para responder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de iFrames -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🖼️</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">iFrames</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            No está permitido crear marcos alrededor de nuestras páginas web sin aprobación previa por escrito.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Responsabilidad sobre el Contenido -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>⚖️</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Responsabilidad sobre el Contenido</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            No nos hacemos responsables del contenido que aparezca en tu sitio web. Aceptas protegernos y defendernos ante cualquier reclamación que surja en tu sitio web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Reserva de Derechos -->
+    <section class="py-12 bg-gradient-to-r from-[#007500]/10 to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>📝</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Reserva de Derechos</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Nos reservamos el derecho de solicitar la eliminación de cualquier enlace a nuestro sitio web. También nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Eliminación de Enlaces -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#007500] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>🗑️</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#f7890b]">Eliminación de Enlaces de Nuestro Sitio Web</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-4">
+                            Si encuentras algún enlace ofensivo en nuestro sitio, contáctanos y consideraremos tu solicitud, aunque no estamos obligados a eliminarlo o responder directamente.
+                        </p>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            No garantizamos que la información en este sitio sea precisa o completa, ni aseguramos que el sitio permanezca disponible o actualizado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Descargo de Responsabilidad -->
+    <section class="py-12 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start gap-6 mb-10">
+                    <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span>⚠️</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-[#007500]">Descargo de Responsabilidad</h2>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                            En la medida permitida por la ley aplicable, excluimos todas las representaciones, garantías y condiciones relacionadas con nuestro sitio web. Nada en este descargo de responsabilidad:
+                        </p>
+
+                        <ul class="list-disc pl-8 mb-6 space-y-2 text-lg text-gray-700 font-light">
+                            <li>Limitará nuestra responsabilidad por muerte o lesiones personales.</li>
+                            <li>Limitará nuestra responsabilidad por fraude o tergiversación fraudulenta.</li>
+                            <li>Limitará nuestras responsabilidades de manera contraria a la ley aplicable.</li>
+                        </ul>
+
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                            Siempre que el sitio web y su contenido se proporcionen de manera gratuita, no seremos responsables de ninguna pérdida o daño de cualquier naturaleza.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Aceptación -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-[#f7890b]/10 to-[#007500]/10 p-8 rounded-2xl mb-12 text-center">
+                    <p class="text-xl text-gray-700 font-medium leading-relaxed mb-6">
+                        Al utilizar nuestro sitio web, aceptas estos Términos y Condiciones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="py-16 bg-gradient-to-b from-white to-[#f7890b]/20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-[#007500]">¿Tienes Preguntas?</h2>
+                <p class="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                    Si tienes alguna duda sobre nuestros Términos y Condiciones, no dudes en contactar con nuestro equipo de soporte.
+                </p>
+                <a href="/contacto/" class="inline-block px-8 py-4 bg-[#f7890b] text-white rounded-xl text-xl font-bold hover:bg-[#007500] transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    Contactar al Soporte
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estilos adicionales específicos para la página de Términos y Condiciones -->
+    <style>
+        /* Efectos de hover para elementos interactivos */
+        a.inline-block {
+            position: relative;
+            overflow: hidden;
+        }
+
+        a.inline-block::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        a.inline-block:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Efectos para los elementos con iconos */
+        .flex.items-start.gap-6:hover .bg-\[\#f7890b\],
+        .flex.items-start.gap-6:hover .bg-\[\#007500\] {
+            transform: rotate(5deg) scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bg-\[\#f7890b\],
+        .bg-\[\#007500\] {
+            transition: transform 0.3s ease;
+        }
+
+        /* Animación de entrada para secciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .flex.items-start.gap-6 {
+                flex-direction: column;
+            }
+
+            .bg-\[\#f7890b\].text-white.text-2xl.w-12.h-12,
+            .bg-\[\#007500\].text-white.text-2xl.w-12.h-12 {
+                margin-bottom: 1rem;
+            }
+
+            .text-4xl.md\:text-5xl {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <?php include '../cookie-consent.php'; ?>
+</body>
+
+</html>

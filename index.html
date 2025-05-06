@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Bistro - Juego de Cocina y Fusión</title>
+    <meta name="description" content="¡Conviértete en el mejor chef en Merge Bistro! Fusiona elementos, prepara platos deliciosos y gestiona tu propio restaurante en este emocionante juego.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: url('/src/img/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(247, 137, 11, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(247, 137, 11, 0.9);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(247, 137, 11, 0.5);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                <span class="text-2xl font-bold text-[#f7890b]">Merge Bistro</span>
+            </a>
+
+            <!-- Menú de navegación para desktop -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#inicio" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="#acerca" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="#caracteristicas" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="#gameplay" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="#galeria" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="#descargar" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Descargar</a>
+                <a href="/About-us/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Sobre nosotros</a>
+                <a href="/contacto/" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors btn-hover glow-effect">Contacto</a>
+            </nav>
+
+            <!-- Botón de menú para móvil -->
+            <button class="md:hidden text-[#f7890b] text-2xl">☰</button>
+        </div>
+    </header>
+
+    <!-- Menú móvil (oculto por defecto) -->
+    <div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden">
+        <div class="bg-white h-full w-4/5 max-w-xs p-5">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-2xl font-bold text-[#f7890b]">Menú</span>
+                <button class="text-2xl">✕</button>
+            </div>
+            <nav class="flex flex-col space-y-6">
+                <a href="#inicio" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Inicio</a>
+                <a href="#acerca" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Acerca del Juego</a>
+                <a href="#caracteristicas" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Características</a>
+                <a href="#gameplay" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Gameplay</a>
+                <a href="#galeria" class="text-lg font-medium hover:text-[#f7890b] transition-colors">Galería</a>
+                <a href="#descargar" class="text-lg font-bold px-6 py-2 bg-[#f7890b] text-white rounded-full hover:bg-[#e67800] transition-colors text-center mt-4">Descargar</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sección Hero/Inicio -->
+    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#f7890b]/40 to-white/80"></div>
+        <div class="container mx-auto px-4 py-20 z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 glow-text">
+                ¡Fusiona y Cocina en <span class="text-[#007500]">Merge Bistro</span>!
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-10 max-w-4xl mx-auto font-light">
+                Sumérgete en un mundo culinario donde la creatividad no tiene límites. Combina ingredientes, crea platos exquisitos y gestiona tu propio restaurante en esta aventura gastronómica.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#descargar" class="px-8 py-4 bg-[#f7890b] text-white rounded-xl text-xl font-bold hover:bg-[#e67800] transition-all transform hover:-translate-y-1 glow-effect">
+                    Descargar Ahora ⬇️
+                </a>
+                <a href="#gameplay" class="px-8 py-4 bg-white text-[#f7890b] rounded-xl text-xl font-bold hover:bg-gray-100 transition-all transform hover:-translate-y-1 border-2 border-[#f7890b]">
+                    Ver Gameplay 🎮
+                </a>
+            </div>
+            <div class="mt-12 flex justify-center items-center gap-6">
+                <div class="bg-white rounded-lg p-3 shadow-lg">
+                    <div class="text-[#f7890b] text-4xl mb-1">⭐⭐⭐⭐★</div>
+                    <div class="text-lg font-medium">4,5 Estrellas</div>
+                    <div class="text-sm text-gray-500">1.520 Reseñas</div>
+                </div>
+                <div class="bg-white rounded-lg p-3 shadow-lg">
+                    <div class="text-[#007500] text-4xl mb-1">📱</div>
+                    <div class="text-lg font-medium">+100.000</div>
+                    <div class="text-sm text-gray-500">Descargas</div>
+                </div>
+                <div class="bg-white rounded-lg p-3 shadow-lg">
+                    <div class="text-[#f7890b] text-4xl mb-1">👨‍👩‍👧‍👦</div>
+                    <div class="text-lg font-medium">Para todos</div>
+                    <div class="text-sm text-gray-500">Desde 3 años</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Acerca del Juego -->
+    <section id="acerca" class="py-20 bg-gradient-to-r from-white to-[#f7890b]/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="/src/img/gameplay.png" alt="Gameplay de Merge Bistro" class="rounded-3xl shadow-xl glow-effect">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-[#007500]">Acerca de Merge Bistro</h2>
+                    <p class="text-xl mb-6 text-gray-700 font-light leading-relaxed">
+                        ¿Estás listo para convertirte en el mejor chef? ¡Sumérgete en el mundo de Merge Bistro, donde crearás deliciosos platos combinando diferentes elementos y gestionando tu propio restaurante!
+                    </p>
+                    <p class="text-xl mb-6 text-gray-700 font-light leading-relaxed">
+                        Viaja a lugares exóticos, conoce personajes interesantes y explora el mundo de Merge Bistro. Descubre ingredientes únicos que llevarán tu cocina a otro nivel y expandirás tu negocio mientras te enfrentas a competidores amistosos y feroces que te ayudarán o dificultarán tu éxito.
+                    </p>
+                    <p class="text-xl text-gray-700 font-light leading-relaxed">
+                        Merge Bistro combina los mejores juegos de fusión y gestión de restaurantes con una jugabilidad apasionante que te hará volver por más. ¿Podrás aceptar el desafío y convertirte en el mejor chef del mundo?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Características -->
+    <section id="caracteristicas" class="py-20 bg-[#007500]/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center text-[#f7890b]">Características Principales</h2>
+            <p class="text-xl text-center mb-16 max-w-4xl mx-auto text-gray-700 font-light">
+                Descubre todo lo que Merge Bistro tiene para ofrecer en esta experiencia culinaria sin igual.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Característica 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">🍲</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Fusiona y Crea</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Combina diferentes elementos para crear recetas únicas y deliciosas que sorprenderán a tus clientes virtuales. Descubre combinaciones secretas para platos especiales.
+                    </p>
+                </div>
+
+                <!-- Característica 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">🌎</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Expande tu Negocio</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Lleva tu restaurante a nuevas ubicaciones alrededor del mundo. Cada lugar tiene sus propios desafíos y oportunidades para que tu imperio culinario crezca.
+                    </p>
+                </div>
+
+                <!-- Característica 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">👨‍🍳</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Personajes Únicos</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Conoce y contrata personal para tu restaurante. Interactúa con personajes amigables y competidores que te ayudarán o desafiarán en tu viaje culinario.
+                    </p>
+                </div>
+
+                <!-- Característica 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">🍅</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Ingredientes Raros</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Descubre ingredientes exóticos y raros que llevarán tus recetas a otro nivel. Cada ingrediente tiene propiedades únicas que podrás aprovechar.
+                    </p>
+                </div>
+
+                <!-- Característica 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">🎮</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Juega en Cualquier Momento</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Disfruta de Merge Bistro en cualquier momento y lugar, incluso sin conexión a internet. Tu restaurante siempre estará listo para cuando quieras jugar.
+                    </p>
+                </div>
+
+                <!-- Característica 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
+                    <div class="text-5xl mb-6 text-[#f7890b]">🆓</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#007500]">Juego Gratuito</h3>
+                    <p class="text-lg text-gray-700 font-light">
+                        Merge Bistro es gratis para jugar. Disfruta de la experiencia completa sin costo, con opciones de compras dentro de la aplicación que puedes controlar fácilmente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Gameplay -->
+    <section id="gameplay" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center text-[#007500]">Cómo Jugar</h2>
+            <p class="text-xl text-center mb-16 max-w-4xl mx-auto text-gray-700 font-light">
+                Aprende los conceptos básicos de Merge Bistro y comienza tu aventura culinaria en minutos.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#f7890b] to-[#007500] rounded-3xl blur"></div>
+                        <img src="/src/img/gameplay2.png" alt="Gameplay de Merge Bistro" class="relative rounded-3xl shadow-lg">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="space-y-10">
+                        <div class="flex items-start gap-6">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">1</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2 text-[#007500]">Comienza Tu Restaurante</h3>
+                                <p class="text-lg text-gray-700 font-light">
+                                    Selecciona tu ubicación inicial y prepara tu cocina para recibir los primeros clientes. Aprende los controles básicos y familiarízate con la interfaz.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">2</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2 text-[#007500]">Fusiona Elementos</h3>
+                                <p class="text-lg text-gray-700 font-light">
+                                    Arrastra y suelta elementos similares para fusionarlos y crear nuevos ingredientes o utensilios. Cada fusión te acerca a descubrir nuevas recetas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">3</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2 text-[#007500]">Prepara Platos</h3>
+                                <p class="text-lg text-gray-700 font-light">
+                                    Utiliza tus ingredientes fusionados para crear deliciosos platos. Sigue las recetas o experimenta para descubrir combinaciones especiales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="bg-[#f7890b] text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">4</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2 text-[#007500]">Expande y Mejora</h3>
+                                <p class="text-lg text-gray-700 font-light">
+                                    Invierte tus ganancias en mejorar tu restaurante, desbloquear nuevas áreas y contratar personal. Cada mejora abre nuevas posibilidades de juego.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="py-20 bg-gradient-to-r from-[#f7890b]/10 to-[#007500]/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center text-[#f7890b]">Galería</h2>
+            <p class="text-xl text-center mb-16 max-w-4xl mx-auto text-gray-700 font-light">
+                Echa un vistazo a las imágenes del juego y descubre el colorido mundo de Merge Bistro.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Imagen 1 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery1.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Cocina Principal</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery2.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Fusionando Ingredientes</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery3.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Restaurante en París</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 4 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery4.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Personajes del Juego</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 5 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery5.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Colección de Ingredientes</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 6 -->
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <img src="/src/img/gallery6.png" alt="Captura de pantalla de Merge Bistro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Terraza con Vistas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Descargar -->
+    <section id="descargar" class="py-20 bg-gradient-to-b from-white to-[#f7890b]/20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-[#007500]">¡Descarga Ahora!</h2>
+            <p class="text-xl mb-12 max-w-4xl mx-auto text-gray-700 font-light">
+                Merge Bistro está disponible para dispositivos iOS y Android. ¡Descárgalo gratis y comienza tu aventura culinaria hoy mismo!
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <a href="https://apps.apple.com/us/app/merge-bistro/id6444039464?" target="_blank" class="bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-800 transition-colors glow-effect">
+                    <div class="text-4xl">📱</div>
+                    <div class="text-left">
+                        <div class="text-sm">Descargar en</div>
+                        <div class="text-xl font-bold">App Store</div>
+                    </div>
+                </a>
+
+                <a href="https://play.google.com/store/apps/details?id=jp.co.digitalwill.mergebistro&pcampaignid=web_share" target="_blank" class="bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-800 transition-colors glow-effect">
+                    <div class="text-4xl">🤖</div>
+                    <div class="text-left">
+                        <div class="text-sm">Disponible en</div>
+                        <div class="text-xl font-bold">Google Play</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-xl max-w-3xl mx-auto relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#f7890b]/10 rounded-full"></div>
+                <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-[#007500]/10 rounded-full"></div>
+
+                <h3 class="text-3xl font-bold mb-6 text-[#f7890b] relative z-10">Opiniones de Jugadores</h3>
+
+                <div class="space-y-6 relative z-10">
+                    <div class="bg-gray-50 rounded-2xl p-6 text-left">
+                        <div class="flex items-center mb-4">
+                            <div class="text-[#f7890b] text-2xl mr-2">⭐⭐⭐⭐⭐</div>
+                            <div class="font-medium">María C.</div>
+                        </div>
+                        <p class="text-gray-700 font-light">
+                            "¡Me encanta este juego! La combinación de gestión de restaurante y mecánica de fusión es adictiva. No puedo dejar de jugar, siempre quiero descubrir nuevas recetas."
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-6 text-left">
+                        <div class="flex items-center mb-4">
+                            <div class="text-[#f7890b] text-2xl mr-2">⭐⭐⭐⭐</div>
+                            <div class="font-medium">Carlos M.</div>
+                        </div>
+                        <p class="text-gray-700 font-light">
+                            "Muy divertido y relajante. Me gusta poder jugar sin internet cuando viajo. Los gráficos son hermosos y la jugabilidad es intuitiva."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#007500] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="/" class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="/src/icons/logo.png" alt="Logo Merge Bistro" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold">Merge Bistro</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/Policy356/" class="text-white hover:text-[#f7890b] transition-colors">Política de Privacidad</a>
+                    <a href="/Service347/" class="text-white hover:text-[#f7890b] transition-colors">Términos de Uso</a>
+                    <a href="/Cookie992/" class="text-white hover:text-[#f7890b] transition-colors">Política de Cookies</a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    © 2025 Merge Bistro. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-black');
+            const closeButton = document.querySelector('.fixed.inset-0 button');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Cerrar menú al hacer clic en enlaces
+            const mobileLinks = document.querySelectorAll('.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Efecto de desplazamiento suave para enlaces de anclaje
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto de resaltado para elementos en hover
+            const hoverElements = document.querySelectorAll('.btn-hover');
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseover', function() {
+                    this.classList.add('scale-105');
+                });
+
+                element.addEventListener('mouseout', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+
+            // Animación para mostrar elementos al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transition = 'opacity 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <?php include 'cookie-consent.php'; ?>
+</body>
+
+</html>
